@@ -56,3 +56,20 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.deleteItemButton {
+    width: 32px;
+    height: 32px;
+    background-color: #2e2e35;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 50px;
+}
+
+.deleteItemButton::before {
+    content: "⨯";
+    font-size: 24px;
+}
