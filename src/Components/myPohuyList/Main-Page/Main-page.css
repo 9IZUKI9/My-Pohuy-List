@@ -14,8 +14,8 @@
     border-bottom: solid white 1px;
 }
 .main-page input {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 
 .main-page input:checked ~ .item-value{
@@ -24,12 +24,11 @@
 
 .main-page__item {
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 20px;
     color: white;
     font-size: 24px;
     font-weight: 600;
-    margin-right: auto;
     margin-left: 40px;
 }
 
@@ -57,19 +56,29 @@
     margin-right: auto;
 }
 
-.deleteItemButton {
-    width: 32px;
-    height: 32px;
+[class^="item__button"] {
+    width: 30px;
+    height: 30px;
     background-color: #2e2e35;
     border: none;
     border-radius: 20px;
     color: white;
     cursor: pointer;
     font-weight: 700;
-    margin-left: 50px;
+    margin-top: 2px;
 }
 
-.deleteItemButton::before {
+.item__button-rename::before {
+    content: "✎";
+    font-size: 18px;
+}
+
+.item__button-delete::before {
     content: "⨯";
     font-size: 24px;
+}
+
+
+[class^="item__button"]:hover {
+    color: rgb(248, 215, 215);
 }

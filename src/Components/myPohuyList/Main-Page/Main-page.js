@@ -13,13 +13,20 @@ function MainPage() {
         }
     };
 
-    const deleteAllItems = () => {
+    const clearPage = () => {
         setItems([]);
     }
 
     const deleteItem = (id) => {
-        setItems(prevItems => prevItems.filter(item => item.id !== id));
+        setItems(item => item.filter(item => item.id !== id));
     };
+
+    const renameItem = (id) => {
+        const userValue = prompt('Введите новое имя для элемента:')
+        if (userValue) {
+            setItems(items.map(item => item.id === id ? {value: userValue} : item))
+        }
+    }
 
     function message() {
         alert("ПОХУЙ")
@@ -31,9 +38,11 @@ function MainPage() {
             <form>
                 {items.map(item => (
                     <div key={item.id} className="main-page__item">
-                        <input type='checkbox'/>
-                        <div className='item-value'>{item.value}</div>
-                        <button className='deleteItemButton' type='button'
+                        <input type='checkbox'/> 
+                        {item.value}
+                        <button className='item__button-rename' type='button'
+                        onClick={() => renameItem(item.id)}></button>
+                        <button className='item__button-delete' type='button'
                         onClick={() => deleteItem(item.id)}></button>
                     </div>
                 ))}
@@ -43,7 +52,7 @@ function MainPage() {
                     Добавить
                 </button>
 
-                <button type='button' onClick={deleteAllItems}>
+                <button type='button' onClick={clearPage}>
                     Очистить
                 </button>
 
