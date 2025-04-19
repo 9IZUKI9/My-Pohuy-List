@@ -55,30 +55,3 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-[class^="item__button"] {
-    width: 30px;
-    height: 30px;
-    background-color: #2e2e35;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    font-weight: 700;
-    margin-top: 2px;
-}
-
-.item__button-rename::before {
-    content: "✎";
-    font-size: 18px;
-}
-
-.item__button-delete::before {
-    content: "⨯";
-    font-size: 24px;
-}
-
-
-[class^="item__button"]:hover {
-    color: rgb(248, 215, 215);
-}

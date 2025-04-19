@@ -1,5 +1,8 @@
+import './Main-page.css';
 import { useState } from 'react';
-import './Main-page.css'
+import ListButtons from './List-buttons/ListButtons';
+import ButtonRename from './Button-rename/ButtonRename';
+import ButtonDelete from './Button-delete/ButtonDelete';
 
 function MainPage() {
     const [items, setItems] = useState([]);
@@ -7,9 +10,7 @@ function MainPage() {
     const addNewItem = () => {
         const userValue = prompt('Введите имя для нового элемента списка:')
         if (userValue) {
-            setItems([...items, {
-            id: Date.now(),
-            value: userValue}]);
+            setItems([...items, {id: Date.now(), value: userValue}]);
         }
     };
 
@@ -40,25 +41,26 @@ function MainPage() {
                     <div key={item.id} className="main-page__item">
                         <input type='checkbox'/> 
                         {item.value}
-                        <button className='item__button-rename' type='button'
-                        onClick={() => renameItem(item.id)}></button>
-                        <button className='item__button-delete' type='button'
-                        onClick={() => deleteItem(item.id)}></button>
+                        <ButtonRename onClick={() => renameItem(item.id)}/>
+                        <ButtonDelete onClick={() => deleteItem(item.id)} />
                     </div>
                 ))}
             </form>
             <div className='button-section'>
-                <button type="button" onClick={addNewItem}>
-                    Добавить
-                </button>
+                <ListButtons 
+                onClick={addNewItem}
+                name="Добавить"
+                />
 
-                <button type='button' onClick={clearPage}>
-                    Очистить
-                </button>
+                <ListButtons 
+                onClick={clearPage}
+                name="Очистить"
+                />
 
-                <button type='button' onClick={message}>
-                    Похуй
-                </button>
+                <ListButtons 
+                onClick={message}
+                name="Похуй"
+                />
             </div>
         </div>
     )
