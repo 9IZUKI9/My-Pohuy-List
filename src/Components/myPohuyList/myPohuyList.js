@@ -1,12 +1,12 @@
-import './myPohuyList.css'
-import MainPage from './Main-Page/Main-page.js'
+import './MyPohuyList.css'
+import List from './List/list.js'
 
-function myPohuyList() {
+function MyPohuyList() {
     return (
-        <div className='myPohuyList'>
-            <MainPage />
+        <div className='MyPohuyList'>
+            <List />
         </div>
     );
 }
 
-export default myPohuyList;
+export default MyPohuyList;

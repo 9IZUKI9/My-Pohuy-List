@@ -1,5 +1,5 @@
 import './App.css';
-import MyPohuyList from '../myPohuyList/myPohuyList';
+import MyPohuyList from "../MyPohuyList/MyPohuyList.js"
 
 function App() {
   return (

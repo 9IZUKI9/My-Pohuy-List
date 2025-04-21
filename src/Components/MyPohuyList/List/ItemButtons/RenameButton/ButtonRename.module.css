@@ -1,4 +1,4 @@
-.buttonRename {
+.ButtonRename {
     width: 30px;
     height: 30px;
     background-color: #2e2e35;
@@ -8,18 +8,9 @@
     cursor: pointer;
     font-weight: 700;
     margin-top: 2px;
-}
-
-.buttonRename::before {
-    content: "✎";
     font-size: 18px;
 }
 
-.buttonRename:hover {
+.ButtonRename:hover {
     color: rgb(215, 226, 248);
-}
-
-.form123 {
-    width: 20px;
-    height: 20px;
 }

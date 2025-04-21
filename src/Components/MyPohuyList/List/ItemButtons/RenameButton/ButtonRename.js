@@ -3,8 +3,8 @@ import styles from './ButtonRename.module.css'
 
 function ButtonRename(props) {
     return (
-        <button className={styles.buttonRename} type='button'
-        onClick={props.onClick}></button>
+        <button className={styles.ButtonRename} type='button'
+        onClick={props.onClick}>✎</button>
     )
 }
 

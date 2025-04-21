@@ -1,0 +1,14 @@
+.ListButton{
+    width: 250px;
+    height: 40px;
+    position: relative;
+    background-color: #212126;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.ListButton:hover {
+    background-color: #24242a;
+}

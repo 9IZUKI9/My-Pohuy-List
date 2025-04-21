@@ -1,4 +1,4 @@
-.buttonDelete {
+.DeleteButton {
     width: 30px;
     height: 30px;
     background-color: #2e2e35;
@@ -8,13 +8,9 @@
     cursor: pointer;
     font-weight: 700;
     margin-top: 2px;
-}
-
-.buttonDelete::before {
-    content: "⨯";
     font-size: 24px;
 }
 
-.buttonDelete:hover {
+.DeleteButton:hover {
     color: rgb(248, 215, 215);
 }

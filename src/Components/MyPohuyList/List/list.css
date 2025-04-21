@@ -1,4 +1,4 @@
-.main-page {
+.list {
     position: relative;
     background-color: #1d1d20;
     width: 800px;
@@ -7,22 +7,27 @@
     border-radius: 40px;
 }
 
-.main-page h2 {
+.list h2 {
     color: white;
     font-size: 38px;
     font-weight: 800;
     border-bottom: solid white 1px;
 }
-.main-page input {
+
+.list form {
+    margin-bottom: 100px;
+}
+
+.list input {
     width: 30px;
     height: 30px;
 }
 
-.main-page input:checked ~ .item-value{
+.list input:checked ~ .item-value{
     text-decoration:line-through white 3px;
 }
 
-.main-page__item {
+.list-item {
     display: flex;
     align-items: start;
     gap: 20px;
@@ -30,22 +35,6 @@
     font-size: 24px;
     font-weight: 600;
     margin-left: 40px;
-}
-
-.button-section button{
-    width: 250px;
-    height: 40px;
-    position: relative;
-    margin-top: 100px;
-    background-color: #212126;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-}
-
-.button-section button:hover {
-    background-color: #24242a;
 }
 
 .button-section {
