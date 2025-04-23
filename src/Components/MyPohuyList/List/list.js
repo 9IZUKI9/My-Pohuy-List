@@ -5,62 +5,89 @@ import RenameButton from './ItemButtons/RenameButton/ButtonRename.js';
 import DeleteButton from './ItemButtons/DeleteButton/DeleteButton.js';
 
 function List() {
-    const [items, setItems] = useState([]);
+    const [lists, setLists] = useState([]);
 
-    const addNewItem = () => {
-        const elementName = prompt('Введите имя для нового элемента списка:')
+    const createNewItem = (listId) => {
+        const elementName = prompt('Введите имя для нового элемента списка:');
         if (elementName) {
-            setItems([...items, {id: Date.now(), value: elementName}]);
+            setLists(lists.map(list => 
+                list.id === listId ? {...list,
+                items: [{id: Date.now(), value: elementName}]} : list
+            ));
         }
     };
 
-    const clearPage = () => {
-        setItems([]);
-    }
-
-    const deleteItem = (id) => {
-        setItems(item => item.filter(item => item.id !== id));
+    const clearPage = (listId) => {
+        setLists(lists.map(list => 
+            list.id === listId ? {...list, items: []} : list
+        ));
     };
 
-    const renameItem = (id) => {
-        const userValue = prompt('Введите новое имя для элемента:')
+    const deleteItem = (listId, itemId) => {
+        setLists(lists.map(list => 
+            list.id === listId ? {...list,
+            items: list.items.filter(item => item.id !== itemId)} : list
+        ));
+    };
+
+    const renameItem = (listId, itemId) => {
+        const userValue = prompt('Введите новое имя для элемента:');
         if (userValue) {
-            setItems(items.map(item => item.id === id ? {value: userValue} : item))
+            setLists(lists.map(list => 
+                list.id === listId ? {...list, items: list.items.map(item =>
+                item.id === itemId ? {...item, value: userValue} : item)} : list
+            ));
         }
-    }
+    };
 
     function message() {
-        alert("ПОХУЙ")
+        alert("ПОХУЙ");
     }
+
+    const createNewList = () => {
+        setLists([...lists, {id: Date.now(), items: []}]);
+    };
 
     return (
         <div className='list'>
             <h2>Список дел</h2>
-            <div className='list-name'>
-            <ListButton onClick={addNewItem} name="+" />
-            </div>
-            <form>
-                {items.map(item => (
-                    <div key={item.id} className="list-item">
-                        <input type='checkbox'/> 
-                        {item.value}
-                        <RenameButton onClick={() => renameItem(item.id)}/>
-                        <DeleteButton onClick={() => deleteItem(item.id)}/>
+            {lists.map(list => (
+                <div key={list.id} className='list-wrapper'>
+                    <input className='list-name'
+                    placeholder='Введите название списка' maxLength={40}/>
+                    <form>
+                        {(list.items || []).map(item => (
+                            <div key={item.id} className="list-item">
+                                <input type='checkbox'/>
+                                {item.value}
+                                <RenameButton onClick={() => renameItem(list.id, item.id)}/>
+                                <DeleteButton onClick={() => deleteItem(list.id, item.id)}/>
+                            </div>
+                        ))}
+                    </form>
+                    <div className='button-section'>
+                        <ListButton
+                            onClick={() => createNewItem(list.id)}
+                            name="Добавить"
+                        />
+                        <ListButton 
+                            onClick={() => clearPage(list.id)}
+                            name="Очистить"
+                        />
+                        <ListButton 
+                            onClick={message}
+                            name="Похуй"
+                        />
                     </div>
-                ))}
-            </form>
-            <div className='button-section'>
-                <ListButton onClick={addNewItem} name="Добавить"
-                />
+                </div>
+            ))}
 
-                <ListButton onClick={clearPage} name="Очистить"
-                />
-
-                <ListButton  onClick={message} name="Похуй"
-                />
-            </div>
+            <ListButton 
+                onClick={createNewList} 
+                name="Добавить список" 
+            />
         </div>
-    )
+    );
 }
 
 export default List;

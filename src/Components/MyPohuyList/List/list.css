@@ -2,7 +2,7 @@
     position: relative;
     background-color: #1d1d20;
     width: 800px;
-    height: 900px;
+    min-height: 900px;
     margin-top: 30px;
     border-radius: 40px;
 }
@@ -15,16 +15,33 @@
 }
 
 .list form {
+    margin-top: 20px;
     margin-bottom: 100px;
 }
 
-.list input {
+.list-item input {
     width: 30px;
     height: 30px;
 }
 
 .list input:checked ~ .item-value{
     text-decoration:line-through white 3px;
+}
+
+.list-name {
+    width: 700px;
+    height: 40px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.list-name:focus {
+    outline: none;
 }
 
 .list-item {
@@ -41,6 +58,7 @@
     width: 350px;
     display: flex;
     gap: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
 }
