@@ -1,6 +1,7 @@
 .ListButton{
     width: 250px;
     height: 40px;
+    margin-bottom: 20px;
     position: relative;
     background-color: #212126;
     border: none;

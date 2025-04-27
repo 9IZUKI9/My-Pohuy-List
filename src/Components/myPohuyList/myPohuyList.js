@@ -1,5 +1,5 @@
 import './MyPohuyList.css'
-import List from './List/list.js'
+import List from './List/list';
 
 function MyPohuyList() {
     return (
